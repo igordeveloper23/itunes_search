@@ -1580,3 +1580,86 @@ Processing by SearchController#search as JS
 Completed 200 OK in 2868ms (Views: 5.0ms | ActiveRecord: 0.5ms | Allocations: 11454)
 
 
+Started GET "/" for ::1 at 2023-07-31 05:09:05 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 348)
+  Rendered layout layouts/application.html.erb (Duration: 73.1ms | Allocations: 39897)
+Completed 200 OK in 92ms (Views: 78.0ms | ActiveRecord: 0.0ms | Allocations: 44108)
+
+
+Started GET "/search?search_term=David&_=1690794546157" for ::1 at 2023-07-31 05:09:11 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"David", "_"=>"1690794546157"}
+  [1m[36mAlbum Pluck (0.3ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 2.6ms | Allocations: 654)
+  Rendered search/search.js.erb (Duration: 7.0ms | Allocations: 3361)
+Completed 200 OK in 12337ms (Views: 8.5ms | ActiveRecord: 0.8ms | Allocations: 16812)
+
+
+Started POST "/toggle_favorite" for ::1 at 2023-07-31 05:09:26 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"295997939"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 295997939], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:16:in `toggle_favorite'
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 295997939], ["is_favorite", 0], ["created_at", "2023-07-31 09:09:26.567010"], ["updated_at", "2023-07-31 09:09:26.567010"]]
+  ↳ app/controllers/search_controller.rb:16:in `toggle_favorite'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:16:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:21:in `toggle_favorite'
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-31 09:09:26.572619"], ["id", 4]]
+  ↳ app/controllers/search_controller.rb:21:in `toggle_favorite'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:21:in `toggle_favorite'
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 4.0ms | Allocations: 10775)
+
+
+Started POST "/toggle_favorite" for ::1 at 2023-07-31 05:09:27 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"695657022"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 695657022], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:16:in `toggle_favorite'
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 695657022], ["is_favorite", 0], ["created_at", "2023-07-31 09:09:27.844349"], ["updated_at", "2023-07-31 09:09:27.844349"]]
+  ↳ app/controllers/search_controller.rb:16:in `toggle_favorite'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:16:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:21:in `toggle_favorite'
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-31 09:09:27.848861"], ["id", 5]]
+  ↳ app/controllers/search_controller.rb:21:in `toggle_favorite'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:21:in `toggle_favorite'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 4.3ms | Allocations: 4687)
+
+
+Started GET "/search?search_term=Test&_=1690794546158" for ::1 at 2023-07-31 05:09:30 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"Test", "_"=>"1690794546158"}
+  [1m[36mAlbum Pluck (26.4ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.3ms | Allocations: 391)
+  Rendered search/search.js.erb (Duration: 1.7ms | Allocations: 3220)
+Completed 200 OK in 4710ms (Views: 2.1ms | ActiveRecord: 26.4ms | Allocations: 7967)
+
+
+Started GET "/search?search_term=David&_=1690794546159" for ::1 at 2023-07-31 05:09:46 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"David", "_"=>"1690794546159"}
+  [1m[36mAlbum Pluck (0.6ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.5ms | Allocations: 343)
+  Rendered search/search.js.erb (Duration: 3.0ms | Allocations: 2803)
+Completed 200 OK in 2693ms (Views: 5.0ms | ActiveRecord: 0.6ms | Allocations: 7268)
+
+
