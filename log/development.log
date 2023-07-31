@@ -1,0 +1,1582 @@
+Started GET "/" for ::1 at 2023-07-28 16:02:30 -0400
+  
+ActiveRecord::NoDatabaseError (We could not find your database: itunes_search_development. Which can be found in the database configuration file located at config/database.yml.
+
+To resolve this issue:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+activerecord (7.0.6) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
+activerecord (7.0.6) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.6) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.6) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.6) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.6) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.6) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.6) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.6) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.6) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.6) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.6) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.6) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.6) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.7) lib/rack/method_override.rb:24:in `call'
+rack (2.2.7) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.7) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.6) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (248.3ms)[0m  [1m[35mCREATE DATABASE "itunes_search_development" ENCODING = 'unicode'[0m
+  [1m[35m (20.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "itunes_search_development"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "itunes_search_development"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "itunes_search_test"[0m
+  [1m[35m (52.9ms)[0m  [1m[35mCREATE DATABASE "itunes_search_development" ENCODING = 'unicode'[0m
+  [1m[35m (58.0ms)[0m  [1m[35mCREATE DATABASE "itunes_search_test" ENCODING = 'unicode'[0m
+Started GET "/" for ::1 at 2023-07-28 16:05:09 -0400
+Processing by SearchController#index as HTML
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 4191)
+
+
+  
+NameError (uninitialized constant SearchController::Album
+
+    @albums = Album.where(is_favorite: true)
+              ^^^^^):
+  
+app/controllers/search_controller.rb:6:in `index'
+Started GET "/" for ::1 at 2023-07-28 16:05:21 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 223)
+  Rendered layout layouts/application.html.erb (Duration: 467.9ms | Allocations: 87765)
+Completed 200 OK in 472ms (Views: 470.5ms | ActiveRecord: 0.0ms | Allocations: 88909)
+
+
+Started GET "/search?search_term=test" for ::1 at 2023-07-28 16:05:32 -0400
+Processing by SearchController#search as */*
+  Parameters: {"search_term"=>"test"}
+Completed 200 OK in 2560ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 12047)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:22:51 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 410)
+  Rendered layout layouts/application.html.erb (Duration: 496.9ms | Allocations: 100195)
+Completed 200 OK in 510ms (Views: 501.8ms | ActiveRecord: 0.0ms | Allocations: 104324)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:23:03 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 202)
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 3126)
+Completed 200 OK in 37ms (Views: 35.4ms | ActiveRecord: 0.0ms | Allocations: 4092)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:23:13 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 198)
+  Rendered layout layouts/application.html.erb (Duration: 42.4ms | Allocations: 3123)
+Completed 200 OK in 57ms (Views: 47.3ms | ActiveRecord: 0.0ms | Allocations: 4055)
+
+
+Started GET "/search?search_term=test" for ::1 at 2023-07-28 16:23:16 -0400
+Processing by SearchController#search as */*
+  Parameters: {"search_term"=>"test"}
+Completed 200 OK in 2168ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 12030)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:32:35 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 169)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 10809)
+Completed 200 OK in 23ms (Views: 22.6ms | Allocations: 11845)
+
+
+Started GET "/search?search_term=test&_=1690576355943" for ::1 at 2023-07-28 16:32:41 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690576355943"}
+  Rendering search/search.js.erb
+  Rendered search/search.js.erb (Duration: 6.4ms | Allocations: 2333)
+Completed 500 Internal Server Error in 2072ms (Allocations: 6843)
+
+
+  
+ActionView::Template::Error (Missing partial search/_album, application/_album with {:locale=>[:en], :formats=>[:js, :html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/darkhorse/project/itunes_search/app/views"
+  * "/home/darkhorse/.rbenv/versions/3.1.3/lib/ruby/gems/3.1.0/gems/turbo-rails-1.4.0/app/views"
+  * "/home/darkhorse/.rbenv/versions/3.1.3/lib/ruby/gems/3.1.0/gems/actiontext-7.0.6/app/views"
+  * "/home/darkhorse/.rbenv/versions/3.1.3/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.6/app/views"
+
+Did you mean?  search/albums
+               active_storage/blobs/blob
+               action_text/attachment_galleries/attachment_gallery
+               action_text/attachables/remote_image
+               action_text/contents/content
+               layouts/action_text/contents/content):
+    1: $("#results tbody").html('<%= j render('album', results: @results) %>')
+  
+app/views/search/search.js.erb:1
+Started GET "/search?search_term=test&_=1690576355944" for ::1 at 2023-07-28 16:33:16 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690576355944"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.8ms | Allocations: 701)
+  Rendered search/search.js.erb (Duration: 6.3ms | Allocations: 3347)
+Completed 200 OK in 2176ms (Views: 10.6ms | Allocations: 8404)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:34:50 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 3132)
+Completed 200 OK in 16ms (Views: 14.8ms | Allocations: 4044)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:35:23 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 2466)
+Completed 200 OK in 12ms (Views: 11.2ms | Allocations: 2732)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:40:12 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 111.6ms | Allocations: 24582)
+Completed 200 OK in 116ms (Views: 114.6ms | Allocations: 24829)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:40:15 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 2496)
+Completed 200 OK in 5ms (Views: 4.3ms | Allocations: 2743)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:41:40 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 59.3ms | Allocations: 13434)
+Completed 200 OK in 61ms (Views: 60.1ms | Allocations: 13687)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:41:41 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 2460)
+Completed 200 OK in 12ms (Views: 11.5ms | Allocations: 2707)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:42:38 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 170)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 3838)
+Completed 200 OK in 18ms (Views: 16.5ms | Allocations: 4732)
+
+
+Started GET "/search?search_term=test&_=1690576958785" for ::1 at 2023-07-28 16:42:42 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690576958785"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.2ms | Allocations: 689)
+  Rendered search/search.js.erb (Duration: 4.3ms | Allocations: 3275)
+Completed 200 OK in 2089ms (Views: 5.8ms | Allocations: 7701)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:46:08 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 382)
+  Rendered layout layouts/application.html.erb (Duration: 3837.0ms | Allocations: 166455)
+Completed 200 OK in 3845ms (Views: 3840.9ms | ActiveRecord: 0.0ms | Allocations: 170582)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:47:56 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 9363)
+Completed 200 OK in 25ms (Views: 23.2ms | ActiveRecord: 0.0ms | Allocations: 10329)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:50:46 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 9363)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms | Allocations: 10285)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:52:53 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 175)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 9391)
+Completed 200 OK in 20ms (Views: 17.8ms | Allocations: 10313)
+
+
+Started GET "/search?search_term=test&_=1690577574021" for ::1 at 2023-07-28 16:55:06 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690577574021"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 2.0ms | Allocations: 700)
+  Rendered search/search.js.erb (Duration: 4.8ms | Allocations: 3316)
+Completed 200 OK in 2037ms (Views: 6.3ms | Allocations: 8212)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:57:46 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 178)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 9368)
+Completed 200 OK in 19ms (Views: 18.0ms | Allocations: 10261)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:58:44 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 179)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 9374)
+Completed 200 OK in 16ms (Views: 15.7ms | Allocations: 10296)
+
+
+Started GET "/" for ::1 at 2023-07-28 16:59:50 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 188)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 9378)
+Completed 200 OK in 15ms (Views: 14.4ms | Allocations: 10290)
+
+
+Started GET "/search?search_term=&_=1690577990950" for ::1 at 2023-07-28 16:59:52 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"", "_"=>"1690577990950"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.8ms | Allocations: 266)
+  Rendered search/search.js.erb (Duration: 4.0ms | Allocations: 508)
+Completed 200 OK in 1787ms (Views: 6.6ms | Allocations: 4195)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:01:07 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 191)
+  Rendered layout layouts/application.html.erb (Duration: 48.1ms | Allocations: 9400)
+Completed 200 OK in 61ms (Views: 58.7ms | Allocations: 10294)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:01:26 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 192)
+  Rendered layout layouts/application.html.erb (Duration: 27.8ms | Allocations: 9370)
+Completed 200 OK in 32ms (Views: 30.8ms | Allocations: 10285)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:01:43 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 194)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 9390)
+Completed 200 OK in 17ms (Views: 15.1ms | Allocations: 10302)
+
+
+Started GET "/search?search_term=test&_=1690578103811" for ::1 at 2023-07-28 17:02:06 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690578103811"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 2.0ms | Allocations: 689)
+  Rendered search/search.js.erb (Duration: 7.4ms | Allocations: 3276)
+Completed 200 OK in 2217ms (Views: 8.9ms | Allocations: 7780)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:03:16 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 194)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 9410)
+Completed 200 OK in 17ms (Views: 15.3ms | Allocations: 10303)
+
+
+Started GET "/search?search_term=test&_=1690578196551" for ::1 at 2023-07-28 17:03:19 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690578196551"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 2.1ms | Allocations: 689)
+  Rendered search/search.js.erb (Duration: 7.1ms | Allocations: 3275)
+Completed 200 OK in 2216ms (Views: 9.4ms | Allocations: 7714)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:06:45 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 194)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 9393)
+Completed 200 OK in 21ms (Views: 20.0ms | Allocations: 10289)
+
+
+Started GET "/search?search_term=test&_=1690578405098" for ::1 at 2023-07-28 17:06:46 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690578405098"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 2.1ms | Allocations: 379)
+  Rendered search/search.js.erb (Duration: 6.7ms | Allocations: 2425)
+Completed 200 OK in 2125ms (Views: 8.7ms | Allocations: 6861)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:09:00 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 193)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 9407)
+Completed 200 OK in 23ms (Views: 20.6ms | Allocations: 10300)
+
+
+Started GET "/search?search_term=test&_=1690578540684" for ::1 at 2023-07-28 17:09:02 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690578540684"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.8ms | Allocations: 381)
+  Rendered search/search.js.erb (Duration: 7.0ms | Allocations: 3327)
+Completed 200 OK in 2730ms (Views: 8.8ms | Allocations: 7789)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:10:51 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 193)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 9392)
+Completed 200 OK in 19ms (Views: 17.7ms | Allocations: 10285)
+
+
+Started GET "/search?search_term=test&_=1690578651914" for ::1 at 2023-07-28 17:10:55 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690578651914"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.6ms | Allocations: 380)
+  Rendered search/search.js.erb (Duration: 3.9ms | Allocations: 3326)
+Completed 200 OK in 2150ms (Views: 6.0ms | Allocations: 7773)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:11:45 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 193)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 9397)
+Completed 200 OK in 16ms (Views: 14.5ms | Allocations: 10290)
+
+
+Started GET "/search?search_term=test&_=1690578705141" for ::1 at 2023-07-28 17:11:48 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690578705141"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.0ms | Allocations: 379)
+  Rendered search/search.js.erb (Duration: 5.3ms | Allocations: 2605)
+Completed 200 OK in 2083ms (Views: 7.3ms | Allocations: 7046)
+
+
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAlbums (20230728211436)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "albums" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "itunes_id" varchar, "is_favorite" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230728211436"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-07-28 21:17:54.828660"], ["updated_at", "2023-07-28 21:17:54.828660"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-07-28 17:18:08 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 404)
+  Rendered layout layouts/application.html.erb (Duration: 117.3ms | Allocations: 39685)
+Completed 200 OK in 125ms (Views: 119.5ms | ActiveRecord: 0.0ms | Allocations: 43813)
+
+
+Started GET "/search?search_term=test&_=1690579088413" for ::1 at 2023-07-28 17:18:10 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690579088413"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.0ms | Allocations: 389)
+  Rendered search/search.js.erb (Duration: 3.8ms | Allocations: 2671)
+Completed 200 OK in 2085ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 7618)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:24:19 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 206)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 9415)
+Completed 200 OK in 16ms (Views: 15.2ms | Allocations: 10316)
+
+
+Started GET "/search?search_term=test&_=1690579460047" for ::1 at 2023-07-28 17:24:33 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690579460047"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.8ms | Allocations: 393)
+  Rendered search/search.js.erb (Duration: 5.5ms | Allocations: 3340)
+Completed 200 OK in 2053ms (Views: 8.7ms | Allocations: 7790)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:25:15 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 205)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 9388)
+Completed 200 OK in 13ms (Views: 12.0ms | Allocations: 10281)
+
+
+Started GET "/search?search_term=test&_=1690579515345" for ::1 at 2023-07-28 17:25:17 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690579515345"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 23.5ms | Allocations: 6066)
+  Rendered search/search.js.erb (Duration: 25.4ms | Allocations: 6319)
+Completed 500 Internal Server Error in 2098ms (Allocations: 10783)
+
+
+  
+ActionView::Template::Error (undefined method `collectionId' for {"wrapperType"=>"collection", "collectionType"=>"Album", "artistId"=>162802, "collectionId"=>3845472, "amgArtistId"=>212097, "artistName"=>"Missy Elliott", "collectionName"=>"This Is Not a Test!", "collectionCensoredName"=>"This Is Not a Test!", "artistViewUrl"=>"https://music.apple.com/us/artist/missy-elliott/162802?uo=4", "collectionViewUrl"=>"https://music.apple.com/us/album/this-is-not-a-test/3845472?uo=4", "artworkUrl60"=>"https://is1-ssl.mzstatic.com/image/thumb/Music/y2003/m12/d01/h13/s02.qaszsuic.jpg/60x60bb.jpg", "artworkUrl100"=>"https://is1-ssl.mzstatic.com/image/thumb/Music/y2003/m12/d01/h13/s02.qaszsuic.jpg/100x100bb.jpg", "collectionPrice"=>9.99, "collectionExplicitness"=>"explicit", "contentAdvisoryRating"=>"Explicit", "trackCount"=>16, "copyright"=>"℗ 2003 Elektra Entertainment Group Inc.  for the United States and WEA International Inc. for the world outside of the United States.", "country"=>"USA", "currency"=>"USD", "releaseDate"=>"2003-11-01T08:00:00Z", "primaryGenreName"=>"Hip-Hop/Rap"}:Hash
+
+      <i class="bi bi-heart" style="font-size: 2rem; color: red;" data-itunes="'.freeze;@output_buffer.append=( album.collectionId );@output_buffer.safe_append='"></i>
+                                                                                                                     ^^^^^^^^^^^^^
+Did you mean?  collect):
+    10:       <%= album['artistName'] %>
+    11:     </td>
+    12:     <td>
+    13:       <i class="bi bi-heart" style="font-size: 2rem; color: red;" data-itunes="<%= album.collectionId %>"></i>
+    14:     </td>
+    15:   </tr>
+    16: <% end %>
+  
+app/views/search/_albums.html.erb:13
+app/views/search/_albums.html.erb:1:in `each'
+app/views/search/_albums.html.erb:1
+app/views/search/search.js.erb:1
+Started GET "/" for ::1 at 2023-07-28 17:25:25 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 9110)
+Completed 200 OK in 13ms (Views: 12.1ms | Allocations: 9421)
+
+
+Started GET "/search?search_term=test&_=1690579525736" for ::1 at 2023-07-28 17:25:28 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690579525736"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 8.0ms | Allocations: 2687)
+  Rendered search/search.js.erb (Duration: 8.8ms | Allocations: 2753)
+Completed 500 Internal Server Error in 2075ms (Allocations: 6944)
+
+
+  
+ActionView::Template::Error (undefined method `collectionId' for {"wrapperType"=>"collection", "collectionType"=>"Album", "artistId"=>162802, "collectionId"=>3845472, "amgArtistId"=>212097, "artistName"=>"Missy Elliott", "collectionName"=>"This Is Not a Test!", "collectionCensoredName"=>"This Is Not a Test!", "artistViewUrl"=>"https://music.apple.com/us/artist/missy-elliott/162802?uo=4", "collectionViewUrl"=>"https://music.apple.com/us/album/this-is-not-a-test/3845472?uo=4", "artworkUrl60"=>"https://is1-ssl.mzstatic.com/image/thumb/Music/y2003/m12/d01/h13/s02.qaszsuic.jpg/60x60bb.jpg", "artworkUrl100"=>"https://is1-ssl.mzstatic.com/image/thumb/Music/y2003/m12/d01/h13/s02.qaszsuic.jpg/100x100bb.jpg", "collectionPrice"=>9.99, "collectionExplicitness"=>"explicit", "contentAdvisoryRating"=>"Explicit", "trackCount"=>16, "copyright"=>"℗ 2003 Elektra Entertainment Group Inc.  for the United States and WEA International Inc. for the world outside of the United States.", "country"=>"USA", "currency"=>"USD", "releaseDate"=>"2003-11-01T08:00:00Z", "primaryGenreName"=>"Hip-Hop/Rap"}:Hash
+
+      <i class="bi bi-heart" style="font-size: 2rem; color: red;" data-itunes="'.freeze;@output_buffer.append=( album.collectionId );@output_buffer.safe_append='"></i>
+                                                                                                                     ^^^^^^^^^^^^^
+Did you mean?  collect):
+    10:       <%= album['artistName'] %>
+    11:     </td>
+    12:     <td>
+    13:       <i class="bi bi-heart" style="font-size: 2rem; color: red;" data-itunes="<%= album.collectionId %>"></i>
+    14:     </td>
+    15:   </tr>
+    16: <% end %>
+  
+app/views/search/_albums.html.erb:13
+app/views/search/_albums.html.erb:1:in `each'
+app/views/search/_albums.html.erb:1
+app/views/search/search.js.erb:1
+Started GET "/" for ::1 at 2023-07-28 17:25:58 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 209)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 9610)
+Completed 200 OK in 29ms (Views: 27.9ms | Allocations: 10498)
+
+
+Started GET "/search?search_term=test&_=1690579558816" for ::1 at 2023-07-28 17:26:00 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690579558816"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.3ms | Allocations: 494)
+  Rendered search/search.js.erb (Duration: 7.6ms | Allocations: 3440)
+Completed 200 OK in 2044ms (Views: 9.3ms | Allocations: 7907)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:27:54 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 196)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 9403)
+Completed 200 OK in 21ms (Views: 20.2ms | Allocations: 10296)
+
+
+Started GET "/search?search_term=test&_=1690579674894" for ::1 at 2023-07-28 17:27:56 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690579674894"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 2.8ms | Allocations: 1324)
+  Rendered search/search.js.erb (Duration: 4.6ms | Allocations: 1565)
+Completed 500 Internal Server Error in 2282ms (Allocations: 6002)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% results.present? %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Thumbnail</th>
+        <th>Title</th> 
+        <th>Subtitle</th>
+        <th>Favorite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% results.each do |album| %>
+        <tr>
+          <td>
+            <img src="<%= album['artworkUrl100'] %>" width="100">
+          </td>
+          <td>
+            <%= album['collectionName'] %>
+          </td>
+          <td>
+            <%= album['artistName'] %>
+          </td>
+          <td>
+            <i class="bi bi-heart" style="font-size: 2rem; color: red;" data-itunes="<%= album['collectionId'] %>"></i>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div>No data</div>
+<% end %>
+):
+1:    <% results.present? %>
+2:      <table class="table table-striped table-hover">
+3:        <thead>
+4:          <tr>
+5:            <th>Thumbnail</th>
+6:            <th>Title</th> 
+7:            <th>Subtitle</th>
+8:            <th>Favorite</th>
+9:          </tr>
+10:        </thead>
+11:        <tbody>
+12:          <% results.each do |album| %>
+13:            <tr>
+14:              <td>
+15:                <img src="<%= album['artworkUrl100'] %>" width="100">
+16:              </td>
+17:              <td>
+18:                <%= album['collectionName'] %>
+19:              </td>
+20:              <td>
+21:                <%= album['artistName'] %>
+22:              </td>
+23:              <td>
+24:                <i class="bi bi-heart" style="font-size: 2rem; color: red;" data-itunes="<%= album['collectionId'] %>"></i>
+25:              </td>
+26:            </tr>
+27:          <% end %>
+28:        </tbody>
+29:      </table>
+30:    <% else %>
+31:      <div>No data</div>
+32:    <% end %>
+  
+app/views/search/_albums.html.erb:30: else without rescue is useless
+app/views/search/_albums.html.erb:34: syntax error, unexpected `end', expecting end-of-input
+app/views/search/_albums.html.erb:30: else without rescue is useless
+app/views/search/_albums.html.erb:34: syntax error, unexpected `end', expecting end-of-input
+app/views/search/_albums.html.erb:30: else without rescue is useless
+app/views/search/_albums.html.erb:34: syntax error, unexpected `end', expecting end-of-input
+app/views/search/_albums.html.erb:30: else without rescue is useless
+app/views/search/_albums.html.erb:34: syntax error, unexpected `end', expecting end-of-input
+app/views/search/_albums.html.erb:30: else without rescue is useless
+app/views/search/_albums.html.erb:34: syntax error, unexpected `end', expecting end-of-input
+app/views/search/_albums.html.erb:30: else without rescue is useless
+app/views/search/_albums.html.erb:34: syntax error, unexpected `end', expecting end-of-input
+app/views/search/search.js.erb:1
+Started GET "/" for ::1 at 2023-07-28 17:30:07 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 199)
+  Rendered layout layouts/application.html.erb (Duration: 23.1ms | Allocations: 9592)
+Completed 200 OK in 27ms (Views: 25.7ms | Allocations: 10627)
+
+
+Started GET "/search?search_term=test&_=1690579808125" for ::1 at 2023-07-28 17:30:09 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690579808125"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 16.4ms | Allocations: 1310)
+  Rendered search/search.js.erb (Duration: 18.6ms | Allocations: 1548)
+Completed 500 Internal Server Error in 2108ms (Allocations: 6011)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% results.any? %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Thumbnail</th>
+        <th>Title</th> 
+        <th>Subtitle</th>
+        <th>Favorite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% results.each do |album| %>
+        <tr>
+          <td>
+            <img src="<%= album['artworkUrl100'] %>" width="100">
+          </td>
+          <td>
+            <%= album['collectionName'] %>
+          </td>
+          <td>
+            <%= album['artistName'] %>
+          </td>
+          <td>
+            <i class="bi bi-heart" style="font-size: 2rem; color: red;" data-itunes="<%= album['collectionId'] %>"></i>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div>No data</div>
+<% end %>
+):
+1:    <% results.any? %>
+2:      <table class="table table-striped table-hover">
+3:        <thead>
+4:          <tr>
+5:            <th>Thumbnail</th>
+6:            <th>Title</th> 
+7:            <th>Subtitle</th>
+8:            <th>Favorite</th>
+9:          </tr>
+10:        </thead>
+11:        <tbody>
+12:          <% results.each do |album| %>
+13:            <tr>
+14:              <td>
+15:                <img src="<%= album['artworkUrl100'] %>" width="100">
+16:              </td>
+17:              <td>
+18:                <%= album['collectionName'] %>
+19:              </td>
+20:              <td>
+21:                <%= album['artistName'] %>
+22:              </td>
+23:              <td>
+24:                <i class="bi bi-heart" style="font-size: 2rem; color: red;" data-itunes="<%= album['collectionId'] %>"></i>
+25:              </td>
+26:            </tr>
+27:          <% end %>
+28:        </tbody>
+29:      </table>
+30:    <% else %>
+31:      <div>No data</div>
+32:    <% end %>
+  
+app/views/search/_albums.html.erb:30: else without rescue is useless
+app/views/search/_albums.html.erb:34: syntax error, unexpected `end', expecting end-of-input
+app/views/search/_albums.html.erb:30: else without rescue is useless
+app/views/search/_albums.html.erb:34: syntax error, unexpected `end', expecting end-of-input
+app/views/search/_albums.html.erb:30: else without rescue is useless
+app/views/search/_albums.html.erb:34: syntax error, unexpected `end', expecting end-of-input
+app/views/search/_albums.html.erb:30: else without rescue is useless
+app/views/search/_albums.html.erb:34: syntax error, unexpected `end', expecting end-of-input
+app/views/search/_albums.html.erb:30: else without rescue is useless
+app/views/search/_albums.html.erb:34: syntax error, unexpected `end', expecting end-of-input
+app/views/search/_albums.html.erb:30: else without rescue is useless
+app/views/search/_albums.html.erb:34: syntax error, unexpected `end', expecting end-of-input
+app/views/search/search.js.erb:1
+Started GET "/" for ::1 at 2023-07-28 17:30:28 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 199)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 9597)
+Completed 200 OK in 21ms (Views: 20.3ms | Allocations: 10484)
+
+
+Started GET "/search?search_term=test&_=1690579828213" for ::1 at 2023-07-28 17:30:29 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690579828213"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.7ms | Allocations: 564)
+  Rendered search/search.js.erb (Duration: 3.1ms | Allocations: 3554)
+Completed 200 OK in 2071ms (Views: 5.7ms | Allocations: 8028)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:30:45 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 195)
+  Rendered layout layouts/application.html.erb (Duration: 26.9ms | Allocations: 9396)
+Completed 200 OK in 31ms (Views: 29.7ms | Allocations: 10289)
+
+
+Started GET "/search?search_term=test&_=1690579845260" for ::1 at 2023-07-28 17:30:46 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690579845260"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.4ms | Allocations: 556)
+  Rendered search/search.js.erb (Duration: 6.2ms | Allocations: 3548)
+Completed 200 OK in 2064ms (Views: 7.6ms | Allocations: 7982)
+
+
+Started GET "/search?search_term=test12312312312&_=1690579845261" for ::1 at 2023-07-28 17:30:53 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test12312312312", "_"=>"1690579845261"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered search/search.js.erb (Duration: 0.2ms | Allocations: 80)
+Completed 200 OK in 1970ms (Views: 0.7ms | Allocations: 3384)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:31:51 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 195)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 9402)
+Completed 200 OK in 20ms (Views: 19.2ms | Allocations: 10295)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:32:00 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 195)
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | Allocations: 9402)
+Completed 200 OK in 26ms (Views: 24.8ms | Allocations: 10314)
+
+
+Started GET "/search?search_term=test&_=1690579920561" for ::1 at 2023-07-28 17:32:02 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690579920561"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 2.5ms | Allocations: 559)
+  Rendered search/search.js.erb (Duration: 8.6ms | Allocations: 3552)
+Completed 200 OK in 2085ms (Views: 11.1ms | Allocations: 8027)
+
+
+Started GET "/search?search_term=test123&_=1690579920562" for ::1 at 2023-07-28 17:32:07 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test123", "_"=>"1690579920562"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered search/search.js.erb (Duration: 0.5ms | Allocations: 253)
+Completed 200 OK in 1981ms (Views: 1.3ms | Allocations: 3598)
+
+
+Started GET "/search?search_term=test12332323&_=1690579920563" for ::1 at 2023-07-28 17:32:13 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test12332323", "_"=>"1690579920563"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered search/search.js.erb (Duration: 0.5ms | Allocations: 83)
+Completed 200 OK in 1821ms (Views: 1.2ms | Allocations: 3384)
+
+
+Started GET "/search?search_term=test&_=1690579920564" for ::1 at 2023-07-28 17:32:20 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690579920564"}
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.7ms | Allocations: 295)
+  Rendered search/search.js.erb (Duration: 4.1ms | Allocations: 3107)
+Completed 200 OK in 2095ms (Views: 6.1ms | Allocations: 7164)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:42:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 213)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 9624)
+Completed 200 OK in 25ms (Views: 23.1ms | ActiveRecord: 0.0ms | Allocations: 10676)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:42:41 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 212)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 9426)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.0ms | Allocations: 10347)
+
+
+Started GET "/search?search_term=test&_=1690580561286" for ::1 at 2023-07-28 17:42:44 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690580561286"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."itunes_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:15:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.3ms | Allocations: 672)
+  Rendered search/search.js.erb (Duration: 5.3ms | Allocations: 3701)
+Completed 200 OK in 2089ms (Views: 6.6ms | ActiveRecord: 0.5ms | Allocations: 13270)
+
+
+Started POST "/toggle_favorite" for ::1 at 2023-07-28 17:42:49 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"itunes_id"=>"3845472"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."itunes_id" = ? LIMIT ?[0m  [["itunes_id", "3845472"], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("itunes_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["itunes_id", "3845472"], ["is_favorite", 1], ["created_at", "2023-07-28 21:42:49.103955"], ["updated_at", "2023-07-28 21:42:49.103955"]]
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+  [1m[36mAlbum Update (0.3ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 0], ["updated_at", "2023-07-28 21:42:49.110975"], ["id", 1]]
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+Completed 200 OK in 30ms (Views: 0.5ms | ActiveRecord: 4.8ms | Allocations: 10740)
+
+
+Started POST "/toggle_favorite" for ::1 at 2023-07-28 17:42:55 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"itunes_id"=>"3845472"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."itunes_id" = ? LIMIT ?[0m  [["itunes_id", "3845472"], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-28 21:42:55.173082"], ["id", 1]]
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.4ms | Allocations: 2881)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:45:17 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 217)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 9625)
+Completed 200 OK in 11ms (Views: 9.9ms | Allocations: 10663)
+
+
+Started GET "/search?search_term=test&_=1690580718145" for ::1 at 2023-07-28 17:45:20 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690580718145"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."itunes_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:15:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 3.5ms | Allocations: 668)
+  Rendered search/search.js.erb (Duration: 7.7ms | Allocations: 3696)
+Completed 200 OK in 2023ms (Views: 9.7ms | ActiveRecord: 1.2ms | Allocations: 10055)
+
+
+Started POST "/toggle_favorite" for ::1 at 2023-07-28 17:45:24 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"itunes_id"=>"3845472"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."itunes_id" = ? LIMIT ?[0m  [["itunes_id", "3845472"], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 0], ["updated_at", "2023-07-28 21:45:24.303927"], ["id", 1]]
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 4268)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:45:46 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 212)
+  Rendered layout layouts/application.html.erb (Duration: 27.2ms | Allocations: 9610)
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.0ms | Allocations: 10515)
+
+
+Started GET "/search?search_term=test&_=1690580746180" for ::1 at 2023-07-28 17:45:47 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690580746180"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."itunes_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:15:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 2.3ms | Allocations: 667)
+  Rendered search/search.js.erb (Duration: 7.7ms | Allocations: 3660)
+Completed 200 OK in 2080ms (Views: 9.3ms | ActiveRecord: 0.2ms | Allocations: 8755)
+
+
+Started POST "/toggle_favorite" for ::1 at 2023-07-28 17:45:51 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"itunes_id"=>"3845472"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."itunes_id" = ? LIMIT ?[0m  [["itunes_id", "3845472"], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+  [1m[36mAlbum Update (0.4ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-28 21:45:51.372986"], ["id", 1]]
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.5ms | Allocations: 2803)
+
+
+Started POST "/toggle_favorite" for ::1 at 2023-07-28 17:45:54 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"itunes_id"=>"81837427"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."itunes_id" = ? LIMIT ?[0m  [["itunes_id", "81837427"], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mAlbum Create (0.6ms)[0m  [1m[32mINSERT INTO "albums" ("itunes_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["itunes_id", "81837427"], ["is_favorite", 0], ["created_at", "2023-07-28 21:45:54.536869"], ["updated_at", "2023-07-28 21:45:54.536869"]]
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+  [1m[36mAlbum Update (0.5ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-28 21:45:54.542837"], ["id", 2]]
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 5.7ms | Allocations: 4609)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:45:56 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 8942)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 9192)
+
+
+Started GET "/search?search_term=test&_=1690580756857" for ::1 at 2023-07-28 17:46:01 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690580756857"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."itunes_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:15:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.6ms | Allocations: 385)
+  Rendered search/search.js.erb (Duration: 3.5ms | Allocations: 3197)
+Completed 200 OK in 2121ms (Views: 4.6ms | ActiveRecord: 0.2ms | Allocations: 7801)
+
+
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."itunes_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAlbums (20230728211436)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "albums" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "collection_id" integer, "is_favorite" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230728211436"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-07-28 21:49:21.942544"], ["updated_at", "2023-07-28 21:49:21.942544"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-07-28 17:49:36 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 422)
+  Rendered layout layouts/application.html.erb (Duration: 90.5ms | Allocations: 39872)
+Completed 200 OK in 102ms (Views: 93.2ms | ActiveRecord: 0.0ms | Allocations: 44000)
+
+
+Started GET "/search?search_term=test&_=1690580976539" for ::1 at 2023-07-28 17:49:39 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690580976539"}
+  [1m[36mAlbum Pluck (0.7ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:15:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.7ms | Allocations: 686)
+  Rendered search/search.js.erb (Duration: 4.0ms | Allocations: 3745)
+Completed 200 OK in 4056ms (Views: 5.5ms | ActiveRecord: 1.2ms | Allocations: 11468)
+
+
+Started POST "/toggle_favorite" for ::1 at 2023-07-28 17:49:45 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"3845472"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 3845472], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mAlbum Create (0.4ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 3845472], ["is_favorite", 0], ["created_at", "2023-07-28 21:49:45.371910"], ["updated_at", "2023-07-28 21:49:45.371910"]]
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-28 21:49:45.378810"], ["id", 1]]
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 4.9ms | Allocations: 10710)
+
+
+Started POST "/toggle_favorite" for ::1 at 2023-07-28 17:49:46 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"81837427"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 81837427], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 81837427], ["is_favorite", 0], ["created_at", "2023-07-28 21:49:46.864950"], ["updated_at", "2023-07-28 21:49:46.864950"]]
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:22:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-28 21:49:46.871190"], ["id", 2]]
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:27:in `toggle_favorite'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 6.1ms | Allocations: 4686)
+
+
+Started GET "/search?search_term=abc&_=1690580976540" for ::1 at 2023-07-28 17:49:54 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"abc", "_"=>"1690580976540"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:15:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.5ms | Allocations: 314)
+  Rendered search/search.js.erb (Duration: 3.2ms | Allocations: 2595)
+Completed 200 OK in 2571ms (Views: 4.1ms | ActiveRecord: 0.2ms | Allocations: 7202)
+
+
+Started GET "/search?search_term=test&_=1690580976541" for ::1 at 2023-07-28 17:50:00 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690580976541"}
+  [1m[36mAlbum Pluck (0.3ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:15:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.6ms | Allocations: 385)
+  Rendered search/search.js.erb (Duration: 3.5ms | Allocations: 3197)
+Completed 200 OK in 2239ms (Views: 4.9ms | ActiveRecord: 0.3ms | Allocations: 7789)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:52:05 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 138)
+  Rendered layout layouts/application.html.erb (Duration: 179.8ms | Allocations: 28497)
+Completed 200 OK in 182ms (Views: 181.3ms | ActiveRecord: 0.0ms | Allocations: 29425)
+
+
+Started GET "/search?search_term=test&_=1690581125729" for ::1 at 2023-07-28 17:52:07 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690581125729"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:15:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.5ms | Allocations: 669)
+  Rendered search/search.js.erb (Duration: 8.2ms | Allocations: 3670)
+Completed 200 OK in 2057ms (Views: 10.1ms | ActiveRecord: 0.2ms | Allocations: 8778)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:55:24 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 9163)
+Completed 200 OK in 17ms (Views: 15.9ms | Allocations: 9789)
+
+
+Started GET "/search?search_term=test&_=1690581325075" for ::1 at 2023-07-28 17:55:26 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690581325075"}
+Completed 500 Internal Server Error in 4ms (Allocations: 2593)
+
+
+  
+NameError (uninitialized constant SearchController::ItunesService
+
+    @results = ItunesService.search(term)
+               ^^^^^^^^^^^^^
+Did you mean?  ItunesSearch):
+  
+app/controllers/search_controller.rb:7:in `search'
+Started GET "/" for ::1 at 2023-07-28 17:56:19 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 348)
+  Rendered layout layouts/application.html.erb (Duration: 199.5ms | Allocations: 50430)
+Completed 200 OK in 211ms (Views: 203.6ms | ActiveRecord: 0.0ms | Allocations: 54560)
+
+
+Started GET "/search?search_term=test&_=1690581380236" for ::1 at 2023-07-28 17:56:22 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690581380236"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 2.4ms | Allocations: 686)
+  Rendered search/search.js.erb (Duration: 7.0ms | Allocations: 3744)
+Completed 200 OK in 2078ms (Views: 8.5ms | ActiveRecord: 0.5ms | Allocations: 17144)
+
+
+Started POST "/toggle_favorite" for ::1 at 2023-07-28 17:56:45 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"376675862"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 376675862], ["LIMIT", 1]]
+  ↳ app/controllers/search_controller.rb:16:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:16:in `toggle_favorite'
+  [1m[36mAlbum Create (0.4ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 376675862], ["is_favorite", 0], ["created_at", "2023-07-28 21:56:45.115616"], ["updated_at", "2023-07-28 21:56:45.115616"]]
+  ↳ app/controllers/search_controller.rb:16:in `toggle_favorite'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:16:in `toggle_favorite'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/search_controller.rb:21:in `toggle_favorite'
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-28 21:56:45.124447"], ["id", 3]]
+  ↳ app/controllers/search_controller.rb:21:in `toggle_favorite'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/search_controller.rb:21:in `toggle_favorite'
+Completed 200 OK in 30ms (Views: 0.4ms | ActiveRecord: 6.9ms | Allocations: 10728)
+
+
+Started GET "/" for ::1 at 2023-07-28 17:56:47 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 9017)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 9309)
+
+
+Started GET "/search?search_term=test&_=1690581407734" for ::1 at 2023-07-28 17:56:50 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690581407734"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.6ms | Allocations: 386)
+  Rendered search/search.js.erb (Duration: 4.4ms | Allocations: 3203)
+Completed 200 OK in 2076ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 7933)
+
+
+Started GET "/search?search_term=Missy%20Elliott&_=1690581407735" for ::1 at 2023-07-28 18:04:19 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"Missy Elliott", "_"=>"1690581407735"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.7ms | Allocations: 386)
+  Rendered search/search.js.erb (Duration: 3.8ms | Allocations: 3198)
+Completed 200 OK in 11227ms (Views: 5.3ms | ActiveRecord: 0.8ms | Allocations: 8025)
+
+
+Started GET "/" for ::1 at 2023-07-28 18:40:29 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 9295)
+Completed 200 OK in 11ms (Views: 10.0ms | Allocations: 9925)
+
+
+Started GET "/search?search_term=Missy%20Elliott&_=1690584029496" for ::1 at 2023-07-28 18:40:32 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"Missy Elliott", "_"=>"1690584029496"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.4ms | Allocations: 16)
+  Rendered search/search.js.erb (Duration: 1.7ms | Allocations: 200)
+Completed 200 OK in 1838ms (Views: 2.7ms | ActiveRecord: 1.0ms | Allocations: 5445)
+
+
+Started GET "/" for ::1 at 2023-07-28 18:41:17 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 9141)
+Completed 200 OK in 11ms (Views: 10.5ms | Allocations: 9766)
+
+
+Started GET "/search?search_term=Missy%20Elliott&_=1690584077512" for ::1 at 2023-07-28 18:41:20 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"Missy Elliott", "_"=>"1690584077512"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.6ms | Allocations: 390)
+  Rendered search/search.js.erb (Duration: 22.8ms | Allocations: 3214)
+Completed 200 OK in 2122ms (Views: 24.4ms | ActiveRecord: 1.0ms | Allocations: 9463)
+
+
+Started GET "/search?search_term=test&_=1690584077513" for ::1 at 2023-07-28 18:49:52 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690584077513"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.1ms | Allocations: 385)
+  Rendered search/search.js.erb (Duration: 3.1ms | Allocations: 3197)
+Completed 200 OK in 2145ms (Views: 3.7ms | ActiveRecord: 38.4ms | Allocations: 8013)
+
+
+Started GET "/" for ::1 at 2023-07-29 00:09:16 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 348)
+  Rendered layout layouts/application.html.erb (Duration: 94.3ms | Allocations: 40329)
+Completed 200 OK in 109ms (Views: 97.7ms | ActiveRecord: 0.0ms | Allocations: 44460)
+
+
+Started GET "/search?search_term=test&_=1690603756817" for ::1 at 2023-07-29 00:09:22 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690603756817"}
+  [1m[36mAlbum Pluck (0.3ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 2.1ms | Allocations: 686)
+  Rendered search/search.js.erb (Duration: 6.6ms | Allocations: 3745)
+Completed 200 OK in 2086ms (Views: 8.4ms | ActiveRecord: 0.9ms | Allocations: 17100)
+
+
+Started GET "/" for ::1 at 2023-07-31 02:50:25 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 348)
+  Rendered layout layouts/application.html.erb (Duration: 177.9ms | Allocations: 40384)
+Completed 200 OK in 201ms (Views: 183.2ms | ActiveRecord: 0.0ms | Allocations: 44515)
+
+
+Started GET "/search?search_term=david&_=1690786226364" for ::1 at 2023-07-31 02:50:32 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"david", "_"=>"1690786226364"}
+  [1m[36mAlbum Pluck (1.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.6ms | Allocations: 563)
+  Rendered search/search.js.erb (Duration: 4.0ms | Allocations: 2670)
+Completed 200 OK in 2506ms (Views: 5.2ms | ActiveRecord: 1.8ms | Allocations: 15930)
+
+
+Started GET "/search?search_term=David%20Parry&_=1690786226365" for ::1 at 2023-07-31 02:51:37 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"David Parry", "_"=>"1690786226365"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.1ms | Allocations: 443)
+  Rendered search/search.js.erb (Duration: 4.1ms | Allocations: 3564)
+Completed 200 OK in 3292ms (Views: 6.2ms | ActiveRecord: 0.2ms | Allocations: 8509)
+
+
+Started GET "/search?search_term=David%20Parry&_=1690786226366" for ::1 at 2023-07-31 02:52:26 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"David Parry", "_"=>"1690786226366"}
+Completed 500 Internal Server Error in 7ms (Allocations: 2257)
+
+
+  
+NameError (undefined local variable or method `url' for ItunesService:Class
+
+    uri = URI(url)
+              ^^^
+Did you mean?  uri
+               URI):
+  
+app/services/itunes_service.rb:8:in `search'
+app/controllers/search_controller.rb:7:in `search'
+Started GET "/" for ::1 at 2023-07-31 02:53:35 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 9329)
+Completed 200 OK in 20ms (Views: 19.5ms | Allocations: 9925)
+
+
+Started GET "/search?search_term=David%20Parry&_=1690786415107" for ::1 at 2023-07-31 02:53:38 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"David Parry", "_"=>"1690786415107"}
+Completed 500 Internal Server Error in 2ms (Allocations: 2037)
+
+
+  
+NameError (undefined local variable or method `url' for ItunesService:Class
+
+    uri = URI(url)
+              ^^^
+Did you mean?  uri
+               URI):
+  
+app/services/itunes_service.rb:8:in `search'
+app/controllers/search_controller.rb:7:in `search'
+Started GET "/" for ::1 at 2023-07-31 02:53:53 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 9344)
+Completed 200 OK in 18ms (Views: 17.6ms | Allocations: 9970)
+
+
+Started GET "/search?search_term=David%20Parry&_=1690786433848" for ::1 at 2023-07-31 02:53:55 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"David Parry", "_"=>"1690786433848"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.1ms | Allocations: 382)
+  Rendered search/search.js.erb (Duration: 4.3ms | Allocations: 3035)
+Completed 200 OK in 3044ms (Views: 5.5ms | ActiveRecord: 1.1ms | Allocations: 9339)
+
+
+Started GET "/search?search_term=David%20Parry&_=1690786433849" for ::1 at 2023-07-31 02:55:03 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"David Parry", "_"=>"1690786433849"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.1ms | Allocations: 38)
+  Rendered search/search.js.erb (Duration: 1.4ms | Allocations: 358)
+Completed 200 OK in 2008ms (Views: 3.8ms | ActiveRecord: 1.0ms | Allocations: 6238)
+
+
+Started GET "/" for ::1 at 2023-07-31 02:56:03 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 9310)
+Completed 200 OK in 26ms (Views: 25.1ms | Allocations: 9936)
+
+
+Started GET "/search?search_term=David&_=1690786563327" for ::1 at 2023-07-31 02:56:09 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"David", "_"=>"1690786563327"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered search/search.js.erb (Duration: 0.4ms | Allocations: 108)
+Completed 200 OK in 1849ms (Views: 1.0ms | ActiveRecord: 0.6ms | Allocations: 5750)
+
+
+Started GET "/" for ::1 at 2023-07-31 02:57:05 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 9328)
+Completed 200 OK in 21ms (Views: 20.1ms | Allocations: 9953)
+
+
+Started GET "/search?search_term=David&_=1690786625660" for ::1 at 2023-07-31 02:57:08 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"David", "_"=>"1690786625660"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.6ms | Allocations: 288)
+  Rendered search/search.js.erb (Duration: 3.4ms | Allocations: 2400)
+Completed 200 OK in 2720ms (Views: 4.8ms | ActiveRecord: 0.8ms | Allocations: 8510)
+
+
+Started GET "/" for ::1 at 2023-07-31 02:57:24 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 9134)
+Completed 200 OK in 14ms (Views: 13.4ms | Allocations: 9759)
+
+
+Started GET "/search?search_term=David&_=1690786644999" for ::1 at 2023-07-31 02:57:29 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"David", "_"=>"1690786644999"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered search/search.js.erb (Duration: 11.9ms | Allocations: 2819)
+Completed 200 OK in 2501ms (Views: 14.5ms | ActiveRecord: 0.8ms | Allocations: 9003)
+
+
+Started GET "/search?search_term=David%20Bowie&_=1690786645000" for ::1 at 2023-07-31 02:58:54 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"David Bowie", "_"=>"1690786645000"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.9ms | Allocations: 446)
+  Rendered search/search.js.erb (Duration: 5.2ms | Allocations: 3566)
+Completed 200 OK in 3078ms (Views: 6.3ms | ActiveRecord: 0.2ms | Allocations: 8451)
+
+
+Started GET "/search?search_term=Bowie&_=1690786645001" for ::1 at 2023-07-31 03:00:12 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"Bowie", "_"=>"1690786645001"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.6ms | Allocations: 443)
+  Rendered search/search.js.erb (Duration: 4.5ms | Allocations: 3583)
+Completed 200 OK in 3197ms (Views: 7.4ms | ActiveRecord: 2.2ms | Allocations: 10364)
+
+
+Started GET "/" for ::1 at 2023-07-31 03:02:56 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 9341)
+Completed 200 OK in 19ms (Views: 18.3ms | Allocations: 9966)
+
+
+Started GET "/search?search_term=David&_=1690786976756" for ::1 at 2023-07-31 03:03:00 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"David", "_"=>"1690786976756"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered search/search.js.erb (Duration: 0.3ms | Allocations: 108)
+Completed 200 OK in 11ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 4056)
+
+
+Started GET "/" for ::1 at 2023-07-31 03:03:21 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 9359)
+Completed 200 OK in 21ms (Views: 20.4ms | Allocations: 9986)
+
+
+Started GET "/search?search_term=David&_=1690787001334" for ::1 at 2023-07-31 03:03:25 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"David", "_"=>"1690787001334"}
+  [1m[36mAlbum Pluck (0.3ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  ↳ app/controllers/search_controller.rb:9:in `search'
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.6ms | Allocations: 347)
+  Rendered search/search.js.erb (Duration: 3.6ms | Allocations: 2819)
+Completed 200 OK in 2868ms (Views: 5.0ms | ActiveRecord: 0.5ms | Allocations: 11454)
+
+

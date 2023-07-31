@@ -1,0 +1,1437 @@
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums"[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "albums" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "collection_id" integer, "is_favorite" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230728211436)[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2023-07-29 02:52:28.066470"], ["updated_at", "2023-07-29 02:52:28.066470"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "d6c4b06d3c08d976463022264acaca4b3f0493b3"], ["created_at", "2023-07-29 02:52:28.076415"], ["updated_at", "2023-07-29 02:52:28.076415"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.6ms | Allocations: 258)
+Completed 200 OK in 2115ms (Views: 5.8ms | ActiveRecord: 0.7ms | Allocations: 10403)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 0.0ms | Allocations: 55069)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 1], ["is_favorite", 0], ["created_at", "2023-07-29 02:58:09.532016"], ["updated_at", "2023-07-29 02:58:09.532016"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.1ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", nil], ["is_favorite", 0], ["created_at", "2023-07-29 02:58:09.539060"], ["updated_at", "2023-07-29 02:58:09.539060"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 02:58:09.541098"], ["id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 1632)
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 14154)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 1], ["is_favorite", 0], ["created_at", "2023-07-29 03:03:02.320158"], ["updated_at", "2023-07-29 03:03:02.320158"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.0ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", nil], ["is_favorite", 0], ["created_at", "2023-07-29 03:03:02.323522"], ["updated_at", "2023-07-29 03:03:02.323522"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.0ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 03:03:02.324280"], ["id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1632)
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms | Allocations: 14154)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 1], ["is_favorite", 0], ["created_at", "2023-07-29 03:16:45.274356"], ["updated_at", "2023-07-29 03:16:45.274356"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.1ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", nil], ["is_favorite", 0], ["created_at", "2023-07-29 03:16:45.278863"], ["updated_at", "2023-07-29 03:16:45.278863"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 03:16:45.279691"], ["id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1633)
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 1.3ms | Allocations: 258)
+Completed 200 OK in 2194ms (Views: 8.8ms | ActiveRecord: 0.3ms | Allocations: 10402)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.9ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 1], ["is_favorite", 0], ["created_at", "2023-07-29 03:26:46.307466"], ["updated_at", "2023-07-29 03:26:46.307466"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.1ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", nil], ["is_favorite", 0], ["created_at", "2023-07-29 03:26:46.312093"], ["updated_at", "2023-07-29 03:26:46.312093"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 03:26:46.313396"], ["id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1457)
+  [1m[36mAlbum Load (0.5ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.6ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 1.4ms | Allocations: 258)
+Completed 200 OK in 2122ms (Views: 7.5ms | ActiveRecord: 1.1ms | Allocations: 10400)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (1.4ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 1], ["is_favorite", 0], ["created_at", "2023-07-29 03:28:45.587119"], ["updated_at", "2023-07-29 03:28:45.587119"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JS
+  Parameters: {"collection_id"=>"1"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 03:28:45.595769"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 1160)
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-28 23:29:22 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 5061.8ms | Allocations: 167448)
+Completed 200 OK in 5082ms (Views: 5069.7ms | ActiveRecord: 0.0ms | Allocations: 171440)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-28 23:29:27 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-28 23:29:27 -0400
+Started GET "/search?search_term=test&_=1690601367970" for 127.0.0.1 at 2023-07-28 23:29:30 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690601367970"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.1ms | Allocations: 684)
+  Rendered search/search.js.erb (Duration: 5.2ms | Allocations: 3720)
+Completed 200 OK in 2294ms (Views: 11.3ms | ActiveRecord: 0.7ms | Allocations: 122553)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-28 23:30:43 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2720.2ms | Allocations: 50702)
+Completed 200 OK in 2726ms (Views: 2722.1ms | ActiveRecord: 0.0ms | Allocations: 54694)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-28 23:30:46 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-28 23:30:46 -0400
+Started GET "/search?search_term=test&_=1690601446623" for 127.0.0.1 at 2023-07-28 23:30:48 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690601446623"}
+  [1m[36mAlbum Pluck (0.3ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 3.2ms | Allocations: 684)
+  Rendered search/search.js.erb (Duration: 16.1ms | Allocations: 3720)
+Completed 200 OK in 2142ms (Views: 19.6ms | ActiveRecord: 0.9ms | Allocations: 96815)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.3ms | Allocations: 258)
+Completed 200 OK in 2087ms (Views: 3.3ms | ActiveRecord: 0.5ms | Allocations: 10408)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (1.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 1], ["is_favorite", 0], ["created_at", "2023-07-29 04:12:49.064986"], ["updated_at", "2023-07-29 04:12:49.064986"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JS
+  Parameters: {"collection_id"=>"1"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 04:12:49.073218"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1160)
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 00:13:00 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2975.7ms | Allocations: 51238)
+Completed 200 OK in 2990ms (Views: 2980.4ms | ActiveRecord: 0.0ms | Allocations: 55230)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 00:13:04 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 00:13:04 -0400
+Started GET "/search?search_term=test&_=1690603984119" for 127.0.0.1 at 2023-07-29 00:13:06 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690603984119"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.5ms | Allocations: 694)
+  Rendered search/search.js.erb (Duration: 2.5ms | Allocations: 3738)
+Completed 200 OK in 2091ms (Views: 6.2ms | ActiveRecord: 0.3ms | Allocations: 85891)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 00:13:58 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2909.3ms | Allocations: 51264)
+Completed 200 OK in 2920ms (Views: 2912.3ms | ActiveRecord: 0.0ms | Allocations: 55256)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 00:14:01 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 00:14:01 -0400
+Started GET "/search?search_term=test&_=1690604041632" for 127.0.0.1 at 2023-07-29 00:14:03 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690604041632"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.7ms | Allocations: 694)
+  Rendered search/search.js.erb (Duration: 5.4ms | Allocations: 4136)
+Completed 200 OK in 2050ms (Views: 6.2ms | ActiveRecord: 1.1ms | Allocations: 82477)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 00:16:12 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2753.4ms | Allocations: 51255)
+Completed 200 OK in 2776ms (Views: 2758.3ms | ActiveRecord: 0.0ms | Allocations: 55247)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 00:16:15 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 00:16:15 -0400
+Started GET "/search?search_term=test&_=1690604175890" for 127.0.0.1 at 2023-07-29 00:16:17 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690604175890"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.9ms | Allocations: 1093)
+  Rendered search/search.js.erb (Duration: 6.0ms | Allocations: 4137)
+Completed 200 OK in 2083ms (Views: 7.1ms | ActiveRecord: 0.3ms | Allocations: 81086)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 00:27:52 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2609.5ms | Allocations: 51286)
+Completed 200 OK in 2623ms (Views: 2612.8ms | ActiveRecord: 0.0ms | Allocations: 55278)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 00:27:55 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 00:27:55 -0400
+Started GET "/search?search_term=test&_=1690604875587" for 127.0.0.1 at 2023-07-29 00:27:57 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690604875587"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.6ms | Allocations: 694)
+  Rendered search/search.js.erb (Duration: 5.0ms | Allocations: 3738)
+Completed 200 OK in 2111ms (Views: 7.5ms | ActiveRecord: 0.8ms | Allocations: 83181)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 00:32:16 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2587.0ms | Allocations: 51315)
+Completed 200 OK in 2596ms (Views: 2589.6ms | ActiveRecord: 0.0ms | Allocations: 55307)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 00:32:18 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 00:32:18 -0400
+Started GET "/search?search_term=test&_=1690605138869" for 127.0.0.1 at 2023-07-29 00:32:20 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690605138869"}
+  [1m[36mAlbum Pluck (1.8ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.8ms | Allocations: 694)
+  Rendered search/search.js.erb (Duration: 5.2ms | Allocations: 3738)
+Completed 200 OK in 2061ms (Views: 6.0ms | ActiveRecord: 2.3ms | Allocations: 84348)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 00:33:18 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2860.7ms | Allocations: 51392)
+Completed 200 OK in 2874ms (Views: 2866.3ms | ActiveRecord: 0.0ms | Allocations: 55384)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 00:33:21 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 00:33:21 -0400
+Started GET "/search?search_term=test&_=1690605201728" for 127.0.0.1 at 2023-07-29 00:33:23 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690605201728"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.0ms | Allocations: 694)
+  Rendered search/search.js.erb (Duration: 3.2ms | Allocations: 3738)
+Completed 200 OK in 2086ms (Views: 4.1ms | ActiveRecord: 0.5ms | Allocations: 85296)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 00:41:36 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2632.0ms | Allocations: 51558)
+Completed 200 OK in 2650ms (Views: 2635.6ms | ActiveRecord: 0.0ms | Allocations: 55550)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 00:41:39 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 00:41:39 -0400
+Started GET "/search?search_term=test&_=1690605699295" for 127.0.0.1 at 2023-07-29 00:41:41 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690605699295"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 4.6ms | Allocations: 694)
+  Rendered search/search.js.erb (Duration: 15.6ms | Allocations: 4137)
+Completed 200 OK in 2115ms (Views: 17.3ms | ActiveRecord: 2.1ms | Allocations: 83417)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 00:44:45 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2568.0ms | Allocations: 51408)
+Completed 200 OK in 2586ms (Views: 2572.0ms | ActiveRecord: 0.0ms | Allocations: 55400)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 00:44:48 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 00:44:48 -0400
+Started GET "/search?search_term=test&_=1690605888096" for 127.0.0.1 at 2023-07-29 00:44:50 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690605888096"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 3.0ms | Allocations: 1095)
+  Rendered search/search.js.erb (Duration: 8.5ms | Allocations: 4139)
+Completed 200 OK in 2215ms (Views: 11.2ms | ActiveRecord: 0.6ms | Allocations: 87372)
+Started POST "/toggle_favorite" for 127.0.0.1 at 2023-07-29 00:44:52 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"3845472"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 3845472], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.9ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 3845472], ["is_favorite", 0], ["created_at", "2023-07-29 04:44:52.462107"], ["updated_at", "2023-07-29 04:44:52.462107"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 04:44:52.466691"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 25ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 6083)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 14163)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 1], ["is_favorite", 0], ["created_at", "2023-07-29 04:45:14.220620"], ["updated_at", "2023-07-29 04:45:14.220620"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JS
+  Parameters: {"collection_id"=>"1"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 04:45:14.225473"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1338)
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 1.2ms | Allocations: 258)
+Completed 200 OK in 2151ms (Views: 6.1ms | ActiveRecord: 0.6ms | Allocations: 10390)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 1], ["is_favorite", 0], ["created_at", "2023-07-29 04:46:23.879505"], ["updated_at", "2023-07-29 04:46:23.879505"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JS
+  Parameters: {"collection_id"=>"1"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 04:46:23.886703"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1160)
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 00:46:36 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2665.3ms | Allocations: 51473)
+Completed 200 OK in 2678ms (Views: 2668.0ms | ActiveRecord: 0.0ms | Allocations: 55465)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 00:46:39 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 00:46:39 -0400
+Started GET "/search?search_term=test&_=1690605999834" for 127.0.0.1 at 2023-07-29 00:46:41 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690605999834"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 2.4ms | Allocations: 1092)
+  Rendered search/search.js.erb (Duration: 5.1ms | Allocations: 4136)
+Completed 200 OK in 2119ms (Views: 6.2ms | ActiveRecord: 1.2ms | Allocations: 84622)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 00:46:44 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 6)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1813)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 2075)
+Started GET "/search?search_term=test&_=1690606004758" for 127.0.0.1 at 2023-07-29 00:46:45 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690606004758"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.2ms | Allocations: 383)
+  Rendered search/search.js.erb (Duration: 1.4ms | Allocations: 3185)
+Completed 200 OK in 1996ms (Views: 1.8ms | ActiveRecord: 0.1ms | Allocations: 69518)
+Started POST "/toggle_favorite" for 127.0.0.1 at 2023-07-29 00:46:47 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"3845472"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 3845472], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.4ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 3845472], ["is_favorite", 0], ["created_at", "2023-07-29 04:46:47.252952"], ["updated_at", "2023-07-29 04:46:47.252952"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 04:46:47.258031"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 34ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 6075)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 00:48:52 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2634.2ms | Allocations: 51473)
+Completed 200 OK in 2645ms (Views: 2636.1ms | ActiveRecord: 0.0ms | Allocations: 55465)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 00:48:55 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 00:48:55 -0400
+Started GET "/search?search_term=test&_=1690606135300" for 127.0.0.1 at 2023-07-29 00:48:57 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690606135300"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.0ms | Allocations: 693)
+  Rendered search/search.js.erb (Duration: 3.2ms | Allocations: 3737)
+Completed 200 OK in 2075ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 82816)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 00:49:00 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 6)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 1813)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 2075)
+Started GET "/search?search_term=test&_=1690606140301" for 127.0.0.1 at 2023-07-29 00:49:00 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690606140301"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.7ms | Allocations: 383)
+  Rendered search/search.js.erb (Duration: 5.4ms | Allocations: 3185)
+Completed 200 OK in 1938ms (Views: 7.9ms | ActiveRecord: 0.2ms | Allocations: 72638)
+Started POST "/toggle_favorite" for 127.0.0.1 at 2023-07-29 00:49:02 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"3845472"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 3845472], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (1.9ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 3845472], ["is_favorite", 0], ["created_at", "2023-07-29 04:49:02.808870"], ["updated_at", "2023-07-29 04:49:02.808870"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 04:49:02.815249"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 20ms (Views: 0.4ms | ActiveRecord: 2.9ms | Allocations: 6074)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 00:50:17 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2675.6ms | Allocations: 51507)
+Completed 200 OK in 2699ms (Views: 2683.8ms | ActiveRecord: 0.0ms | Allocations: 55499)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 00:50:20 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 00:50:20 -0400
+Started GET "/search?search_term=test&_=1690606220247" for 127.0.0.1 at 2023-07-29 00:50:22 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690606220247"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 1.8ms | Allocations: 693)
+  Rendered search/search.js.erb (Duration: 8.9ms | Allocations: 4101)
+Completed 200 OK in 2039ms (Views: 11.8ms | ActiveRecord: 1.1ms | Allocations: 82193)
+Started POST "/toggle_favorite" for 127.0.0.1 at 2023-07-29 00:50:24 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"3845472"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 3845472], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 3845472], ["is_favorite", 0], ["created_at", "2023-07-29 04:50:24.734002"], ["updated_at", "2023-07-29 04:50:24.734002"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 04:50:24.738009"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 22ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 6094)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 1.5ms | Allocations: 258)
+Completed 200 OK in 20ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 4925)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.4ms | Allocations: 90)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 781)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.5ms | Allocations: 90)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 778)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.4ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 1], ["is_favorite", 0], ["created_at", "2023-07-29 04:52:17.433182"], ["updated_at", "2023-07-29 04:52:17.433182"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JS
+  Parameters: {"collection_id"=>"1"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 04:52:17.438546"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 889)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 1], ["is_favorite", 0], ["created_at", "2023-07-29 04:52:17.443246"], ["updated_at", "2023-07-29 04:52:17.443246"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JS
+  Parameters: {"collection_id"=>"1"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 04:52:17.447401"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 653)
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 1], ["is_favorite", 0], ["created_at", "2023-07-29 04:52:17.453571"], ["updated_at", "2023-07-29 04:52:17.453571"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JS
+  Parameters: {"collection_id"=>"1"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.3ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 04:52:17.459285"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 653)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by SearchController#toggle_favorite as JS
+  Parameters: {"collection_id"=>"2"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 333)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.7ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:04.693671"], ["updated_at", "2023-07-29 04:57:04.693671"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 271)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 409)
+Completed 200 OK in 14ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 4468)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.8ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:04.783928"], ["updated_at", "2023-07-29 04:57:04.783928"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.6ms | Allocations: 103)
+Completed 200 OK in 5ms (Views: 2.2ms | ActiveRecord: 0.2ms | Allocations: 1470)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (1.1ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:04.802563"], ["updated_at", "2023-07-29 04:57:04.802563"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.7ms | Allocations: 103)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.1ms | Allocations: 879)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (1.4ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:04.811355"], ["updated_at", "2023-07-29 04:57:04.811355"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.0ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.5ms | Allocations: 103)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 878)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.4ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:04.823885"], ["updated_at", "2023-07-29 04:57:04.823885"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.0ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.5ms | Allocations: 103)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 878)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (1.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:04.831688"], ["updated_at", "2023-07-29 04:57:04.831688"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JSON
+  Parameters: {"collection_id"=>"123"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 123], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 0], ["updated_at", "2023-07-29 04:57:04.841751"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1261)
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.7ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:04.849086"], ["updated_at", "2023-07-29 04:57:04.849086"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JSON
+  Parameters: {"collection_id"=>"456"}
+  [1m[36mAlbum Load (0.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 456], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.1ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 456], ["is_favorite", 0], ["created_at", "2023-07-29 04:57:04.852816"], ["updated_at", "2023-07-29 04:57:04.852816"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 04:57:04.853702"], ["id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1150)
+  [1m[36mAlbum Load (0.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 456], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:52.717684"], ["updated_at", "2023-07-29 04:57:52.717684"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 271)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 409)
+Completed 200 OK in 7ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 4468)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:52.763694"], ["updated_at", "2023-07-29 04:57:52.763694"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.4ms | Allocations: 103)
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1470)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:52.777786"], ["updated_at", "2023-07-29 04:57:52.777786"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.5ms | Allocations: 103)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 879)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:52.785261"], ["updated_at", "2023-07-29 04:57:52.785261"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.0ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.2ms | Allocations: 103)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 878)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:52.791655"], ["updated_at", "2023-07-29 04:57:52.791655"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.0ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.3ms | Allocations: 103)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 878)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.1ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:52.797354"], ["updated_at", "2023-07-29 04:57:52.797354"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JSON
+  Parameters: {"collection_id"=>"123"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 123], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 0], ["updated_at", "2023-07-29 04:57:52.801926"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1261)
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:52.805606"], ["updated_at", "2023-07-29 04:57:52.805606"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JSON
+  Parameters: {"collection_id"=>"456"}
+  [1m[36mAlbum Load (0.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 456], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.1ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 456], ["is_favorite", 0], ["created_at", "2023-07-29 04:57:52.808004"], ["updated_at", "2023-07-29 04:57:52.808004"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 04:57:52.809230"], ["id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 1150)
+  [1m[36mAlbum Load (0.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 456], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:58.228110"], ["updated_at", "2023-07-29 04:57:58.228110"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 271)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 409)
+Completed 200 OK in 19ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 4472)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:58.374557"], ["updated_at", "2023-07-29 04:57:58.374557"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 2.0ms | Allocations: 103)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.2ms | Allocations: 1466)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:58.391401"], ["updated_at", "2023-07-29 04:57:58.391401"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.0ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.5ms | Allocations: 103)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 879)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:58.397157"], ["updated_at", "2023-07-29 04:57:58.397157"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.8ms | Allocations: 103)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.1ms | Allocations: 878)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.4ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:58.407391"], ["updated_at", "2023-07-29 04:57:58.407391"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.7ms | Allocations: 103)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.1ms | Allocations: 878)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.4ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:58.419417"], ["updated_at", "2023-07-29 04:57:58.419417"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JSON
+  Parameters: {"collection_id"=>"123"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 123], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 0], ["updated_at", "2023-07-29 04:57:58.428013"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1261)
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 04:57:58.435518"], ["updated_at", "2023-07-29 04:57:58.435518"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JSON
+  Parameters: {"collection_id"=>"456"}
+  [1m[36mAlbum Load (0.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 456], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.1ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 456], ["is_favorite", 0], ["created_at", "2023-07-29 04:57:58.439333"], ["updated_at", "2023-07-29 04:57:58.439333"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 04:57:58.440204"], ["id", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 1150)
+  [1m[36mAlbum Load (0.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 456], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 00:58:40 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2680.1ms | Allocations: 51583)
+Completed 200 OK in 2694ms (Views: 2684.0ms | ActiveRecord: 0.0ms | Allocations: 55575)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 00:58:43 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 00:58:43 -0400
+Started GET "/search?search_term=test&_=1690606723568" for 127.0.0.1 at 2023-07-29 00:58:45 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690606723568"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 0.9ms | Allocations: 693)
+  Rendered search/search.js.erb (Duration: 3.9ms | Allocations: 3737)
+Completed 200 OK in 2115ms (Views: 5.7ms | ActiveRecord: 0.7ms | Allocations: 83558)
+Started POST "/toggle_favorite" for 127.0.0.1 at 2023-07-29 00:58:48 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"3845472"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 3845472], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 3845472], ["is_favorite", 0], ["created_at", "2023-07-29 04:58:48.193394"], ["updated_at", "2023-07-29 04:58:48.193394"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 04:58:48.196249"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 6094)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 01:01:30 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2745.0ms | Allocations: 51737)
+Completed 200 OK in 2754ms (Views: 2747.0ms | ActiveRecord: 0.0ms | Allocations: 55729)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 01:01:33 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 01:01:33 -0400
+Started GET "/search?search_term=test&_=1690606893548" for 127.0.0.1 at 2023-07-29 01:01:35 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690606893548"}
+  [1m[36mAlbum Pluck (0.3ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 2.5ms | Allocations: 693)
+  Rendered search/search.js.erb (Duration: 8.6ms | Allocations: 3737)
+Completed 200 OK in 2060ms (Views: 11.1ms | ActiveRecord: 0.5ms | Allocations: 181913)
+Started POST "/toggle_favorite" for 127.0.0.1 at 2023-07-29 01:01:38 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"3845472"}
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 3845472], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.6ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 3845472], ["is_favorite", 0], ["created_at", "2023-07-29 05:01:38.160474"], ["updated_at", "2023-07-29 05:01:38.160474"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 05:01:38.164276"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 1.4ms | Allocations: 6091)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 01:31:14 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2853.0ms | Allocations: 51635)
+Completed 200 OK in 2880ms (Views: 2864.3ms | ActiveRecord: 0.0ms | Allocations: 55628)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 01:31:17 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 01:31:17 -0400
+Started GET "/search?search_term=test&_=1690608677544" for 127.0.0.1 at 2023-07-29 01:31:19 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690608677544"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 5.6ms | Allocations: 333)
+  Rendered search/search.js.erb (Duration: 10.0ms | Allocations: 797)
+Completed 200 OK in 37ms (Views: 11.2ms | ActiveRecord: 0.7ms | Allocations: 5086)
+Started POST "/toggle_favorite" for 127.0.0.1 at 2023-07-29 01:31:20 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"3845472"}
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 3845472], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.8ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 3845472], ["is_favorite", 0], ["created_at", "2023-07-29 05:31:20.087121"], ["updated_at", "2023-07-29 05:31:20.087121"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.5ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 05:31:20.093164"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 2.5ms | Allocations: 6091)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 01:31:49 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 340)
+  Rendered layout layouts/application.html.erb (Duration: 2872.3ms | Allocations: 51615)
+Completed 200 OK in 2893ms (Views: 2876.5ms | ActiveRecord: 0.0ms | Allocations: 55607)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 01:31:52 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 01:31:52 -0400
+Started GET "/search?search_term=test&_=1690608712681" for 127.0.0.1 at 2023-07-29 01:31:54 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690608712681"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 2.0ms | Allocations: 333)
+  Rendered search/search.js.erb (Duration: 8.0ms | Allocations: 797)
+Completed 200 OK in 30ms (Views: 11.0ms | ActiveRecord: 0.6ms | Allocations: 5086)
+Started POST "/toggle_favorite" for 127.0.0.1 at 2023-07-29 01:31:55 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"3845472"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 3845472], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 3845472], ["is_favorite", 0], ["created_at", "2023-07-29 05:31:55.112505"], ["updated_at", "2023-07-29 05:31:55.112505"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 05:31:55.114779"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 6091)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (1.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:33:42.676072"], ["updated_at", "2023-07-29 05:33:42.676072"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 271)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 409)
+Completed 200 OK in 6ms (Views: 2.5ms | ActiveRecord: 0.0ms | Allocations: 4468)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.6ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:33:42.719605"], ["updated_at", "2023-07-29 05:33:42.719605"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.4ms | Allocations: 103)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 1471)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.6ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:33:42.730732"], ["updated_at", "2023-07-29 05:33:42.730732"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.2ms | Allocations: 103)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 879)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:33:42.736947"], ["updated_at", "2023-07-29 05:33:42.736947"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.2ms | Allocations: 103)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 878)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:33:42.742813"], ["updated_at", "2023-07-29 05:33:42.742813"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.0ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.3ms | Allocations: 103)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 878)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:33:42.749262"], ["updated_at", "2023-07-29 05:33:42.749262"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JSON
+  Parameters: {"collection_id"=>"123"}
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 123], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.3ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 0], ["updated_at", "2023-07-29 05:33:42.757944"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 1261)
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (1.0ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:33:42.767008"], ["updated_at", "2023-07-29 05:33:42.767008"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JSON
+  Parameters: {"collection_id"=>"456"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 456], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 456], ["is_favorite", 0], ["created_at", "2023-07-29 05:33:42.773163"], ["updated_at", "2023-07-29 05:33:42.773163"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 05:33:42.776128"], ["id", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 1150)
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 456], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:35:32.390334"], ["updated_at", "2023-07-29 05:35:32.390334"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 271)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 409)
+Completed 200 OK in 11ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 4469)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:35:32.467842"], ["updated_at", "2023-07-29 05:35:32.467842"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.4ms | Allocations: 103)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.1ms | Allocations: 1465)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:35:32.479416"], ["updated_at", "2023-07-29 05:35:32.479416"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.0ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.3ms | Allocations: 103)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 879)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:35:32.485710"], ["updated_at", "2023-07-29 05:35:32.485710"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.0ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.3ms | Allocations: 103)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 878)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:35:32.491720"], ["updated_at", "2023-07-29 05:35:32.491720"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.0ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.3ms | Allocations: 103)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 878)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:35:32.498352"], ["updated_at", "2023-07-29 05:35:32.498352"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JSON
+  Parameters: {"collection_id"=>"123"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 123], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 0], ["updated_at", "2023-07-29 05:35:32.503375"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1261)
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:35:32.507258"], ["updated_at", "2023-07-29 05:35:32.507258"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JSON
+  Parameters: {"collection_id"=>"456"}
+  [1m[36mAlbum Load (0.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 456], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.1ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 456], ["is_favorite", 0], ["created_at", "2023-07-29 05:35:32.510088"], ["updated_at", "2023-07-29 05:35:32.510088"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 05:35:32.510952"], ["id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 1150)
+  [1m[36mAlbum Load (0.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 456], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 01:35:37 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 179)
+  Rendered layout layouts/application.html.erb (Duration: 2668.0ms | Allocations: 51652)
+Completed 200 OK in 2670ms (Views: 2669.1ms | ActiveRecord: 0.0ms | Allocations: 52006)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 01:35:40 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 01:35:40 -0400
+Started GET "/search?search_term=test&_=1690608940085" for 127.0.0.1 at 2023-07-29 01:35:42 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690608940085"}
+  [1m[36mAlbum Pluck (0.4ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 2.6ms | Allocations: 332)
+  Rendered search/search.js.erb (Duration: 6.5ms | Allocations: 787)
+Completed 200 OK in 51ms (Views: 7.5ms | ActiveRecord: 0.4ms | Allocations: 3275)
+Started POST "/toggle_favorite" for 127.0.0.1 at 2023-07-29 01:35:42 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"3845472"}
+  [1m[36mAlbum Load (0.5ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 3845472], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 3845472], ["is_favorite", 0], ["created_at", "2023-07-29 05:35:42.650535"], ["updated_at", "2023-07-29 05:35:42.650535"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 05:35:42.652871"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 1235)
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.4ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:38:09.283426"], ["updated_at", "2023-07-29 05:38:09.283426"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 271)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 409)
+Completed 200 OK in 8ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 4469)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:38:09.330919"], ["updated_at", "2023-07-29 05:38:09.330919"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.2ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.2ms | Allocations: 103)
+Completed 200 OK in 5ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 1463)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:38:09.347136"], ["updated_at", "2023-07-29 05:38:09.347136"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.4ms | Allocations: 103)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 879)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:38:09.357919"], ["updated_at", "2023-07-29 05:38:09.357919"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.0ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.3ms | Allocations: 103)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 878)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:38:09.366110"], ["updated_at", "2023-07-29 05:38:09.366110"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test"}
+  [1m[36mAlbum Pluck (0.1ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered search/search.js.erb (Duration: 0.3ms | Allocations: 103)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 878)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.3ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:38:09.376582"], ["updated_at", "2023-07-29 05:38:09.376582"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JSON
+  Parameters: {"collection_id"=>"123"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 123], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 0], ["updated_at", "2023-07-29 05:38:09.388516"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1263)
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.2ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 123], ["is_favorite", 1], ["created_at", "2023-07-29 05:38:09.394269"], ["updated_at", "2023-07-29 05:38:09.394269"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by SearchController#toggle_favorite as JSON
+  Parameters: {"collection_id"=>"456"}
+  [1m[36mAlbum Load (0.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 456], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (0.1ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 456], ["is_favorite", 0], ["created_at", "2023-07-29 05:38:09.397216"], ["updated_at", "2023-07-29 05:38:09.397216"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.1ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 05:38:09.398139"], ["id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1156)
+  [1m[36mAlbum Load (0.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 456], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-07-29 01:38:14 -0400
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 179)
+  Rendered layout layouts/application.html.erb (Duration: 2704.9ms | Allocations: 51469)
+Completed 200 OK in 2706ms (Views: 2705.4ms | ActiveRecord: 0.0ms | Allocations: 51823)
+Started GET "/assets/application-17b9e71b5a70a90257886dbb3260111216e7c9eedb1fe5199c7f9575faf3d6af.css" for 127.0.0.1 at 2023-07-29 01:38:16 -0400
+Started GET "/assets/application-a036c17916e0dc7bc9e76518ecb9cac38b3aad188c47c2af3a532aea3b30f3d0.js" for 127.0.0.1 at 2023-07-29 01:38:16 -0400
+Started GET "/search?search_term=test&_=1690609096978" for 127.0.0.1 at 2023-07-29 01:38:19 -0400
+Processing by SearchController#search as JS
+  Parameters: {"search_term"=>"test", "_"=>"1690609096978"}
+  [1m[36mAlbum Pluck (0.3ms)[0m  [1m[34mSELECT "albums"."collection_id" FROM "albums" WHERE "albums"."is_favorite" = ?[0m  [["is_favorite", 1]]
+  Rendering search/search.js.erb
+  Rendered search/_albums.html.erb (Duration: 3.0ms | Allocations: 332)
+  Rendered search/search.js.erb (Duration: 6.6ms | Allocations: 787)
+Completed 200 OK in 43ms (Views: 7.9ms | ActiveRecord: 0.3ms | Allocations: 3275)
+Started POST "/toggle_favorite" for 127.0.0.1 at 2023-07-29 01:38:19 -0400
+Processing by SearchController#toggle_favorite as */*
+  Parameters: {"collection_id"=>"3845472"}
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."collection_id" = ? LIMIT ?[0m  [["collection_id", 3845472], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Create (2.6ms)[0m  [1m[32mINSERT INTO "albums" ("collection_id", "is_favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["collection_id", 3845472], ["is_favorite", 0], ["created_at", "2023-07-29 05:38:19.453129"], ["updated_at", "2023-07-29 05:38:19.453129"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAlbum Update (0.2ms)[0m  [1m[33mUPDATE "albums" SET "is_favorite" = ?, "updated_at" = ? WHERE "albums"."id" = ?[0m  [["is_favorite", 1], ["updated_at", "2023-07-29 05:38:19.458569"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 3.3ms | Allocations: 1241)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m

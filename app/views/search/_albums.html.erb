@@ -1,0 +1,34 @@
+<% if results.present? %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Thumbnail</th>
+        <th>Title</th> 
+        <th>Subtitle</th>
+        <th>Favorite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% results.each do |album| %>
+        <tr>
+          <td>
+            <img src="<%= album['artworkUrl100'] %>" width="100">
+          </td>
+          <td>
+            <%= album['collectionName'] %>
+          </td>
+          <td>
+            <%= album['artistName'] %>
+          </td>
+          <td>
+            <i class="favorite <%= favorites.include?(album['collectionId']) ? 'bi-heart-fill' : 'bi-heart' %>" style="font-size: 2rem; color: red;" data-itunes="<%= album['collectionId'] %>"></i>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-warning">No albums found. Please try again.</div>
+<% end %>
+
+<div class="results-bottom"></div>
